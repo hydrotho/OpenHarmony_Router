@@ -2,10 +2,11 @@ import router from '@ohos.router';
 
 @Entry
 @Component
-struct Second {
+struct Param {
   abilityName: string = 'Ability One'
-  pageName: string = 'Page Two'
-  method: string = 'Method: @ohos.router without params'
+  pageName: string = 'Page Param'
+  method: string = 'Method: @ohos.router with params'
+  @State data: number | string = router.getParams()['data']
 
   build() {
     Row() {
@@ -30,6 +31,12 @@ struct Second {
         .onClick(() => router.back())
 
         Text(this.method)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
+          .margin(10)
+          .textAlign(TextAlign.Center)
+
+        Text(`Received Data:\n${this.data}`)
           .fontSize(25)
           .fontWeight(FontWeight.Bold)
           .margin(10)

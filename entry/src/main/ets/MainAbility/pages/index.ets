@@ -80,6 +80,21 @@ struct Index {
           .height(50)
           .margin({ top: 10 })
           .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { url: 'pages/second' }))
+
+          Text('Route With Passing Data').fontSize(25)
+            .fontWeight(FontWeight.Bold)
+            .margin({ top: 10 })
+
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability One ParamPage')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.routePage('pages/param', { data: `Route From ${this.abilityName} ${this.pageName}` }))
         }
       }
       .width('100%')

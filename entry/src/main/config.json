@@ -68,7 +68,8 @@
         },
         "pages": [
           "pages/index",
-          "pages/second"
+          "pages/second",
+          "pages/param"
         ],
         "name": ".MainAbility",
         "window": {
