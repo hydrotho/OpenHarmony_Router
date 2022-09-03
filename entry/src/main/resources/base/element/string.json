@@ -11,6 +11,14 @@
     {
       "name": "MainAbility_label",
       "value": "RouterDemo"
+    },
+    {
+      "name": "SecondAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "SecondAbility_label",
+      "value": "RouterDemo_SecondAbility"
     }
   ]
 }

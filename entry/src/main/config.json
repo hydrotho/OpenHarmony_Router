@@ -37,6 +37,19 @@
         "label": "$string:MainAbility_label",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "formsEnabled": false,
+        "name": ".SecondAbility",
+        "srcLanguage": "ets",
+        "srcPath": "SecondAbility",
+        "icon": "$media:icon",
+        "description": "$string:SecondAbility_desc",
+        "label": "$string:SecondAbility_label",
+        "type": "page",
+        "visible": true,
+        "launchType": "standard"
       }
     ],
     "distro": {
@@ -58,6 +71,20 @@
           "pages/second"
         ],
         "name": ".MainAbility",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": false
+        }
+      },
+      {
+        "mode": {
+          "syntax": "ets",
+          "type": "pageAbility"
+        },
+        "pages": [
+          "pages/index"
+        ],
+        "name": ".SecondAbility",
         "window": {
           "designWidth": 720,
           "autoDesignWidth": false

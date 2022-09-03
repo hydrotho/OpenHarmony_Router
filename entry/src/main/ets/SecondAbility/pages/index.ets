@@ -1,23 +1,11 @@
 import featureAbility from '@ohos.ability.featureAbility';
-import router from '@ohos.router';
 
 @Entry
 @Component
 struct Index {
-  abilityName: string = 'Ability One'
+  abilityName: string = 'Ability Two'
   pageName: string = 'Page One'
-
-  async routePage(url: string, params = {}) {
-    let options = {
-      url: url,
-      params: params
-    }
-    try {
-      await router.push(options)
-    } catch (err) {
-      console.info(`Fail in routePage(), code: ${err.code}, msg: ${err.msg}`)
-    }
-  }
+  method: string = 'Method: @ohos.ability.featureAbility without parameters'
 
   async startAbility(bundleName: string, abilityName: string, parameters = {}) {
     let want = {
@@ -44,26 +32,21 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .margin(10)
         Button({ type: ButtonType.Capsule, stateEffect: true }) {
-          Text('Go To Ability One Page Two')
+          Text('Back')
             .fontSize(20)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.White)
         }
-        .width(300)
+        .width(100)
         .height(50)
         .margin(50)
-        .onClick(() => this.routePage('pages/second'))
+        .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.MainAbility'))
 
-        Button({ type: ButtonType.Capsule, stateEffect: true }) {
-          Text('Go To Ability Two Page One')
-            .fontSize(20)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(Color.White)
-        }
-        .width(300)
-        .height(50)
-        .margin(50)
-        .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility'))
+        Text(this.method)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
+          .margin(10)
+          .textAlign(TextAlign.Center)
       }
       .width('100%')
     }
