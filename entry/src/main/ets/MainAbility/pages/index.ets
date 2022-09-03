@@ -64,6 +64,17 @@ struct Index {
         .height(50)
         .margin(50)
         .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility'))
+
+        Button({ type: ButtonType.Capsule, stateEffect: true }) {
+          Text('Go To Ability Two Page Two')
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+        }
+        .width(300)
+        .height(50)
+        .margin(50)
+        .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { url: 'pages/second' }))
       }
       .width('100%')
     }
