@@ -7,14 +7,14 @@ struct Second {
   pageName: string = 'Page Two'
   method: string = 'Method: @ohos.ability.featureAbility with parameters'
 
-  startAbility(bundleName: string, abilityName: string, parameters = {}) {
+  async startAbility(bundleName: string, abilityName: string, parameters = {}) {
     let want = {
       bundleName: bundleName,
       abilityName: abilityName,
       parameters: parameters
     }
     try {
-      featureAbility.startAbility({ want: want }).then(() => featureAbility.terminateSelf());
+      await featureAbility.startAbility({ want: want });
     } catch (err) {
       console.info(`Fail in startAbility(), code: ${err.code}, msg: ${err.msg}`)
     }
