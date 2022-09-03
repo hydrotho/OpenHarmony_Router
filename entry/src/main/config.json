@@ -1,7 +1,7 @@
 {
   "app": {
-    "bundleName": "com.github.hydrotho.router",
     "vendor": "example",
+    "bundleName": "com.github.hydrotho.router",
     "version": {
       "code": 1000000,
       "name": "1.0.0"
@@ -9,19 +9,11 @@
   },
   "deviceConfig": {},
   "module": {
-    "package": "com.example.entry",
-    "name": ".entry",
     "mainAbility": ".MainAbility",
     "deviceType": [
       "default",
       "tablet"
     ],
-    "distro": {
-      "deliveryWithInstall": true,
-      "moduleName": "entry",
-      "moduleType": "entry",
-      "installationFree": false
-    },
     "abilities": [
       {
         "skills": [
@@ -35,18 +27,26 @@
           }
         ],
         "orientation": "unspecified",
-        "formsEnabled": false,
+        "visible": true,
+        "srcPath": "MainAbility",
         "name": ".MainAbility",
         "srcLanguage": "ets",
-        "srcPath": "MainAbility",
         "icon": "$media:icon",
         "description": "$string:MainAbility_desc",
+        "formsEnabled": false,
         "label": "$string:MainAbility_label",
         "type": "page",
-        "visible": true,
         "launchType": "standard"
       }
     ],
+    "distro": {
+      "moduleType": "entry",
+      "installationFree": false,
+      "deliveryWithInstall": true,
+      "moduleName": "entry"
+    },
+    "package": "com.example.entry",
+    "name": ".entry",
     "js": [
       {
         "mode": {
@@ -54,7 +54,8 @@
           "type": "pageAbility"
         },
         "pages": [
-          "pages/index"
+          "pages/index",
+          "pages/second"
         ],
         "name": ".MainAbility",
         "window": {

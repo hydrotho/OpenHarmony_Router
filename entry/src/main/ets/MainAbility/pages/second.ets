@@ -2,21 +2,10 @@ import router from '@ohos.router';
 
 @Entry
 @Component
-struct Index {
+struct Second {
   abilityName: string = 'Ability One'
-  pageName: string = 'Page One'
-
-  async routePage(url: string, params = {}) {
-    let options = {
-      url: url,
-      params: params
-    }
-    try {
-      await router.push(options)
-    } catch (err) {
-      console.info(`Fail in routePage(), code: ${err.code}, msg: ${err.msg}`)
-    }
-  }
+  pageName: string = 'Page Two'
+  method: string = 'Method: @ohos.router'
 
   build() {
     Row() {
@@ -30,15 +19,21 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .margin(10)
         Button({ type: ButtonType.Capsule, stateEffect: true }) {
-          Text('Go To Ability One Page Two')
+          Text('Back')
             .fontSize(20)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.White)
         }
-        .width(300)
+        .width(100)
         .height(50)
         .margin(50)
-        .onClick(() => this.routePage('pages/second'))
+        .onClick(() => router.back())
+
+        Text(this.method)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
+          .margin(10)
+          .textAlign(TextAlign.Center)
       }
       .width('100%')
     }
