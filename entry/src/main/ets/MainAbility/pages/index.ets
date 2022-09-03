@@ -43,38 +43,44 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .margin(10)
-        Button({ type: ButtonType.Capsule, stateEffect: true }) {
-          Text('Go To Ability One Page Two')
-            .fontSize(20)
+        Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+          Text('Route Without Passing Data')
+            .fontSize(25)
             .fontWeight(FontWeight.Bold)
-            .fontColor(Color.White)
-        }
-        .width(300)
-        .height(50)
-        .margin(50)
-        .onClick(() => this.routePage('pages/second'))
 
-        Button({ type: ButtonType.Capsule, stateEffect: true }) {
-          Text('Go To Ability Two Page One')
-            .fontSize(20)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(Color.White)
-        }
-        .width(300)
-        .height(50)
-        .margin(50)
-        .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility'))
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability One Page Two')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.routePage('pages/second'))
 
-        Button({ type: ButtonType.Capsule, stateEffect: true }) {
-          Text('Go To Ability Two Page Two')
-            .fontSize(20)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(Color.White)
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability Two Page One')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility'))
+
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability Two Page Two')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { url: 'pages/second' }))
         }
-        .width(300)
-        .height(50)
-        .margin(50)
-        .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { url: 'pages/second' }))
       }
       .width('100%')
     }
