@@ -95,6 +95,28 @@ struct Index {
           .height(50)
           .margin({ top: 10 })
           .onClick(() => this.routePage('pages/param', { data: `Route From ${this.abilityName} ${this.pageName}` }))
+
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability Two Page One')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { isPassingData: true }))
+
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability Two Page Two')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { url: 'pages/second', isPassingData: true }))
         }
       }
       .width('100%')

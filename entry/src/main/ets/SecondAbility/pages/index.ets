@@ -5,7 +5,8 @@ import featureAbility from '@ohos.ability.featureAbility';
 struct Index {
   abilityName: string = 'Ability Two'
   pageName: string = 'Page One'
-  method: string = 'Method: @ohos.ability.featureAbility without parameters'
+  method: string = 'Method: @ohos.ability.featureAbility'
+  @State isPassingData: boolean = false
 
   async startAbility(bundleName: string, abilityName: string, parameters = {}) {
     let want = {
@@ -18,6 +19,20 @@ struct Index {
     } catch (err) {
       console.info(`Fail in startAbility(), code: ${err.code}, msg: ${err.msg}`)
     }
+  }
+
+  async getWant() {
+    let want = await featureAbility.getWant()
+    if (!want) {
+      return
+    }
+    if (want.parameters.isPassingData === true) {
+      this.isPassingData = want.parameters.isPassingData
+    }
+  }
+
+  aboutToAppear() {
+    this.getWant()
   }
 
   build() {
@@ -47,6 +62,14 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .margin(10)
           .textAlign(TextAlign.Center)
+
+        if (this.isPassingData) {
+          Text('!!!Receive Data!!!')
+            .fontSize(25)
+            .fontWeight(FontWeight.Bold)
+            .margin(10)
+            .textAlign(TextAlign.Center)
+        }
       }
       .width('100%')
     }
