@@ -19,6 +19,14 @@
     {
       "name": "SecondAbility_label",
       "value": "RouterDemo_SecondAbility"
+    },
+    {
+      "name": "WantAgentAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "WantAgentAbility_label",
+      "value": "RouterDemo_WantAgentAbility"
     }
   ]
 }

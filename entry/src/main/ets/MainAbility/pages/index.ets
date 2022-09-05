@@ -1,5 +1,6 @@
 import featureAbility from '@ohos.ability.featureAbility';
 import router from '@ohos.router';
+import wantAgent from '@ohos.wantAgent';
 
 @Entry
 @Component
@@ -30,6 +31,34 @@ struct Index {
     } catch (err) {
       console.info(`Fail in startAbility(), code: ${err.code}, msg: ${err.msg}`)
     }
+  }
+
+  startAbilityViaWantAgent(bundleName: string, abilityName: string) {
+    let wantAgentInfo = {
+      wants: [
+        {
+          bundleName: bundleName,
+          abilityName: abilityName
+        }
+      ],
+      operationType: wantAgent.OperationType.START_ABILITY,
+      requestCode: 0,
+      wantAgentFlags: [wantAgent.WantAgentFlags.CONSTANT_FLAG]
+    }
+
+    wantAgent.getWantAgent(wantAgentInfo, (error, wantAgentObj) => {
+      if (error.code) {
+        console.error("[WantAgent]getWantAgent error: " + JSON.stringify(error))
+      } else {
+        console.log("[WantAgent]getWantAgent success")
+        let triggerInfo = {
+          code: 0
+        }
+        wantAgent.trigger(wantAgentObj, triggerInfo, (completeData) => {
+          console.log("[WantAgent]getWantAgent success, completeData: ", +JSON.stringify(completeData))
+        })
+      }
+    })
   }
 
   build() {
@@ -80,6 +109,18 @@ struct Index {
           .height(50)
           .margin({ top: 10 })
           .onClick(() => this.startAbility('com.github.hydrotho.router', 'com.example.entry.SecondAbility', { url: 'pages/second' }))
+
+          Button({ type: ButtonType.Capsule, stateEffect: true }) {
+            Text('Go To Ability WantAgent')
+              .fontSize(20)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .textAlign(TextAlign.Center)
+          }
+          .width(300)
+          .height(50)
+          .margin({ top: 10 })
+          .onClick(() => this.startAbilityViaWantAgent('com.github.hydrotho.router', 'com.example.entry.WantAgentAbility'))
 
           Text('Route With Passing Data').fontSize(25)
             .fontWeight(FontWeight.Bold)

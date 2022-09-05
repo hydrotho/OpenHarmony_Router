@@ -50,6 +50,19 @@
         "label": "$string:SecondAbility_label",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "formsEnabled": false,
+        "name": ".WantAgentAbility",
+        "srcLanguage": "ets",
+        "srcPath": "WantAgentAbility",
+        "icon": "$media:icon",
+        "description": "$string:WantAgentAbility_desc",
+        "label": "$string:WantAgentAbility_label",
+        "type": "page",
+        "visible": true,
+        "launchType": "standard"
       }
     ],
     "distro": {
@@ -87,6 +100,20 @@
           "pages/second"
         ],
         "name": ".SecondAbility",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": false
+        }
+      },
+      {
+        "mode": {
+          "syntax": "ets",
+          "type": "pageAbility"
+        },
+        "pages": [
+          "pages/index"
+        ],
+        "name": ".WantAgentAbility",
         "window": {
           "designWidth": 720,
           "autoDesignWidth": false
